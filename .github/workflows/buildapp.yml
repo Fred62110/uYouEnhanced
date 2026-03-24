@@ -46,6 +46,8 @@ on:
         default: true
         required: false
         type: boolean
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -82,7 +84,7 @@ jobs:
       
       - name: SDK Caching
         id: SDK
-        uses: actions/cache@v4.3.0
+        uses: actions/cache@v5
         env:
           cache-name: iOS-${{ inputs.sdk_version }}-SDK
         with:
