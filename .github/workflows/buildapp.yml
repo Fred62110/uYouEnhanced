@@ -3,6 +3,9 @@
 
 name: Build and Release uYouEnhanced
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  
 on:
   workflow_dispatch:
     inputs:
@@ -46,8 +49,6 @@ on:
         default: true
         required: false
         type: boolean
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
   
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
